@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #e6e6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h2, h3 {
+    color: #6a5acd;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.toggle-password {
+    display: flex;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #6a5acd;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #6a5acd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+button:hover {
+    background: #483d8b;
+}
+
+.hidden {
+    display: none;
+}
+
+.network-list ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.network-list ul li {
+    padding: 10px;
+    background: #ebeaf9;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.network-list ul li:hover {
+    background: #d9d7f1;
+}
+
+.connected {
+    color: green;
+    font-weight: bold;
+}
+
+#selectedSSID {
+    color: #6a5acd;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+#confirmationMessage {
+    color: green;
+    margin-top: 10px;
+    display: none;
+}
