@@ -38,7 +38,7 @@ Developed by **Md Shaifulla Zibon**, this system is optimized for **real-time Io
 ### 📥 Steps
 
 1. Clone or download this repository.
-2. Open `src/WiFiSetupDemo.ino` in Arduino IDE.
+2. Open `ESP8266-AP/ESP8266-AP.ino` in Arduino IDE.
 3. Edit these lines to set your AP name and password:
    ```cpp
    const char* apSSID = "MyIoT_Device";
