@@ -18,21 +18,6 @@ Developed by **Md Shaifulla Zibon**, this system is optimized for **real-time Io
 
 ---
 
-## 🏗️ Folder Structure
-
-esp8266-wifi-setup/
-├── ESP8266-AP/
-│ ├── WiFiSetup.h # Function declarations
-│ ├── WiFiSetup.cpp # Core logic: server, scanning, connection
-│ └── WiFiSetupDemo.ino # Demo sketch with AP credentials
-├── README.md # Project documentation
-├── LICENSE # MIT License
-├── .gitignore # Build and temp file exclusion
-└── keywords.txt # Arduino IDE syntax highlighting
-
-
----
-
 ## 🚀 How It Works
 
 1. ESP8266 boots in `WIFI_AP_STA` mode.
