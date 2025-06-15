@@ -1,103 +1,88 @@
-# ESP8266 Web-Based Wi-Fi Setup Portal
+```markdown
+# ESP8266 Web-Based Wi-Fi Setup Portal (v2.0.0)
 
-This repository contains a complete modular Wi-Fi setup portal system for ESP8266-based IoT devices. The portal allows users to scan available Wi-Fi networks, select a preferred SSID, input the password, and connect the ESP8266 module to their local Wi-Fi network — all through a user-friendly web interface hosted directly on the ESP device.
+A modular, cloud-free Wi-Fi provisioning system for ESP8266-based IoT devices. This portal enables users to scan Wi-Fi networks, select an SSID, enter a password, and connect the ESP8266 to a local network via a responsive web interface hosted on the device.
 
-Developed by **Md Shaifulla Zibon**, this system is optimized for **real-time IoT systems** and **production-level embedded solutions**, especially where **third-party cloud services are avoided**.
+**Developed by Md Shaifulla Zibon** for privacy-conscious, real-time IoT applications.
 
----
-
-## 🌟 Features
-
-- ✅ **Access Point (AP) Mode Startup** – ESP8266 starts in AP+STA mode, creating its own Wi-Fi network.
-- ✅ **Responsive Web Interface** – Modern HTML/CSS/JS served directly from ESP8266 memory.
-- ✅ **Wi-Fi Network Scanning** – Lists available networks for easy selection.
-- ✅ **Secure Password Entry** – Password toggle and form validation.
-- ✅ **Auto Switch to STA Mode** – Shuts down AP after successful connection.
-- ✅ **Modular Codebase** – Easy to integrate `.h`, `.cpp`, and `.ino` files.
-- ✅ **No Cloud Dependency** – Works offline, local control only.
-
----
-
-## 🏗️ Folder Structure
-
-esp8266-wifi-setup/
-├── ESP8266-AP/
-│ ├── WiFiSetup.h # Function declarations
-│ ├── WiFiSetup.cpp # Core logic: server, scanning, connection
-│ └── WiFiSetupDemo.ino # Demo sketch with AP credentials
-├── README.md # Project documentation
-├── LICENSE # MIT License
-├── .gitignore # Build and temp file exclusion
-└── keywords.txt # Arduino IDE syntax highlighting
-
-
----
+## 🌟 What's New in v2.0.0
+- **Custom SoftAP IP Support**: Set a custom Access Point IP (e.g., `192.168.10.10`) instead of the default `192.168.4.1`.
+- **Improved Modularity**: `WiFiSetup` class now accepts an `IPAddress` parameter for easy setup from the main `.ino` file.
+- **Backward Compatibility**: Supports older configurations without custom IP.
 
 ## 🚀 How It Works
 
 1. ESP8266 boots in `WIFI_AP_STA` mode.
-2. Creates a Wi-Fi network (e.g., `MyIoT_Device`).
-3. Hosts a web server at `192.168.4.1`.
-4. User connects and configures their Wi-Fi via browser.
-5. ESP connects to the selected network and shuts down AP.
+2. Creates a Wi-Fi network (e.g., `MyIoT_Device`) with a custom or default IP.
+3. Hosts a web server for Wi-Fi configuration.
+4. User connects via a browser to select and join a network.
+5. ESP8266 switches to STA mode after successful connection.
 
----
+## 🌐 Features
+
+- Access Point (AP+STA) mode
+- Responsive web interface (HTML/CSS/JS)
+- Wi-Fi network scanning
+- Secure password input with validation
+- Auto-switch to STA mode
+- Modular codebase (`.h`, `.cpp`, `.ino`)
+- Offline, cloud-free operation
+- Configurable AP IP address
 
 ## ⚙️ How to Use
 
-### 🔧 Prerequisites
+### Prerequisites
 
 - Arduino IDE with ESP8266 board support
-- ESP8266 device (e.g., NodeMCU, Wemos D1 Mini)
+- ESP8266 board (e.g., NodeMCU, Wemos D1 Mini)
 
-### 📥 Steps
+### Setup Steps
 
 1. Clone or download this repository.
-2. Open `src/WiFiSetupDemo.ino` in Arduino IDE.
-3. Edit these lines to set your AP name and password:
+2. Open `ESP8266-AP/ESP8266-AP.ino` in Arduino IDE.
+3. Customize Access Point settings:
    ```cpp
    const char* apSSID = "MyIoT_Device";
    const char* apPassword = "12345678";
-Upload the sketch to your ESP8266.
+   IPAddress apIP(192, 168, 10, 10); // Custom SoftAP IP
+   ```
+4. Upload the sketch to your ESP8266.
+5. Connect to the `MyIoT_Device` Wi-Fi network.
+6. Open a browser and navigate to `http://192.168.10.10` (or your custom IP).
 
-Connect your phone or PC to MyIoT_Device Wi-Fi.
+## 🧠 Why This Project?
 
-Open your browser and go to http://192.168.4.1.
+Ideal for professional IoT systems requiring:
+- 🔐 Data privacy and control
+- 🌐 Offline operation
+- ⚡ Real-time performance
+- 💸 No cloud or licensing costs
 
-Select your Wi-Fi, enter password, and connect.
+Use cases:
+- Local web dashboards
+- SMPS-controlled automation
+- Industrial IoT and factory equipment
 
-🧠 Why This Project Exists
-In professional IoT deployments, many developers avoid platforms like Blynk, Firebase, or Adafruit IO due to:
+## 📦 Project Structure
 
-🔐 Privacy and data ownership
+```bash
+ESP8266-AP/
+├── ESP8266-AP.ino        # Main firmware
+├── WiFiSetup.h/.cpp      # Wi-Fi handler
+├── data/                 # Web portal files (HTML/CSS/JS)
+```
 
-🌐 Localized, offline operation
+## 🛡️ License
 
-📡 Real-time responsiveness
+Licensed under the MIT License. See the `LICENSE` file for details.
 
-💸 Cost and licensing avoidance
+## 👨‍💻 Developer
 
-This project provides an independent, offline Wi-Fi provisioning system perfect for:
+**Md Shaifulla Zibon**  
+IoT Systems Designer | SMPS Engineer | Web Dashboard Integrator  
+🎓 B.Sc. in Electrical and Electronic Engineering, European University of Bangladesh  
 
-Local Node.js dashboard integration via WebSocket
+💬 For questions, feature requests, or contributions, open an issue or pull request.
 
-Industrial control without internet dependency
-
-Custom SMPS or relay-based IoT systems
-
-📦 Example Use Case
-This system is actively used in Zibon’s commercial-grade embedded systems for:
-
-✅ Real-time web dashboards (via WebSocket)
-
-🛡️ License
-This project is licensed under the MIT License.
-You are free to use, modify, and redistribute — just keep the original license notice.
-
-See LICENSE for full terms.
-
-🧑‍💻 Developer Info
-Md Shaifulla Zibon
-IoT Systems Designer | SMPS Engineer | Web Dashboard Integrator
-🎓 B.Sc. in Electrical and Electronic Engineering
-🏫 European University of Bangladesh"# esp8266-wifi-setup-portal" 
+---
+```

@@ -2,11 +2,17 @@
 #include "WiFiSetup.h"
 #include <ESP8266WiFi.h>
 
-WiFiSetup::WiFiSetup(const char* ssid, const char* password)
-  : server(80), apSSID(ssid), apPassword(password) {}
+WiFiSetup::WiFiSetup(const char* ssid, const char* password, IPAddress ip)
+  : server(80), apSSID(ssid), apPassword(password), apIP(ip) {}
 
 void WiFiSetup::begin() {
   WiFi.mode(WIFI_AP_STA);
+  
+  IPAddress gateway = apIP; 
+  IPAddress subnet(255, 255, 255, 0);
+  
+  WiFi.softAPConfig(apIP, gateway, subnet);
+
   WiFi.softAP(apSSID, apPassword);
 
   server.on("/", std::bind(&WiFiSetup::handleRoot, this));
@@ -76,7 +82,7 @@ const char* WiFiSetup::htmlPage = R"=====(
     <title>IoT Wi-Fi Setup</title>
     <style>
         body { font-family: Arial, sans-serif; background: #e6e6fa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; width: 300px; }
+        .container { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; width: 350px; }
         h2, h3 { color: #6a5acd; margin-bottom: 10px; }
         .input-group { position: relative; width: 100%; }
         input { width: 100%; padding: 10px 40px 10px 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }

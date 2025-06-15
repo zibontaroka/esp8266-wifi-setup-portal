@@ -6,7 +6,7 @@
 
 class WiFiSetup {
   public:
-    WiFiSetup(const char* apSSID, const char* apPassword);
+    WiFiSetup(const char* apSSID, const char* apPassword, IPAddress apIP);
     void begin();
     void handle();
 
@@ -14,6 +14,8 @@ class WiFiSetup {
     ESP8266WebServer server;
     const char* apSSID;
     const char* apPassword;
+    IPAddress apIP;
+
 
     static const char* htmlPage;
 
