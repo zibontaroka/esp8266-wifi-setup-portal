@@ -84,14 +84,6 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version updates.
 ## 🛡️ License
 Licensed under the MIT License. See the `LICENSE` file for details.
 
-## 🤝 Contributing
-Contributions are welcome! Please follow these steps:
-- Fork the repository
-- Create a feature branch (`git checkout -b feature/your-feature`)
-- Commit changes (`git commit -m 'Add your feature'`)
-- Push to the branch (`git push origin feature/your-feature`)
-- Open a pull request
-For detailed guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 👨‍💻 Developer
 **Md Shaifulla Zibon**  
