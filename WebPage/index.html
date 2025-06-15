@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IoT Wi-Fi Setup</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div id="login" class="page">
+            <h2>Welcome to IoT Device</h2>
+            <h3>Login to Access Point</h3>
+            <input type="text" id="apUsername" placeholder="AP Username" value="admin" />
+            <div class="input-group">
+                <input type="password" id="apPassword" placeholder="AP Password" />
+                <button class="toggle-password" onclick="togglePassword('apPassword')">👁️</button>
+            </div>
+            <button onclick="login()">Login</button>
+        </div>
+
+        <div id="wifiSetup" class="page hidden">
+            <h2>Wi-Fi Setup</h2>
+            <div class="network-list">
+                <ul id="networkList"></ul>
+            </div>
+            <div id="selectedSSID"></div>
+            <div class="input-group">
+                <input type="password" id="wifiPassword" placeholder="Enter Wi-Fi Password" />
+                <button class="toggle-password" onclick="togglePassword('wifiPassword')">👁️</button>
+            </div>
+            <button onclick="connect()">Connect</button>
+            <button onclick="showSettings()">Settings</button>
+            <div id="confirmationMessage"></div>
+        </div>
+
+        <div id="settings" class="page hidden">
+            <h2>Settings</h2>
+            <h3>Change Username and Password</h3>
+            <input type="text" id="newUsername" placeholder="Change Username" />
+            <div class="input-group">
+                <input type="password" id="newPassword" placeholder="Change Password" />
+                <button class="toggle-password" onclick="togglePassword('newPassword')">👁️</button>
+            </div>
+            <button onclick="saveSettings()">Save</button>
+            <button onclick="showWifiSetup()">Back</button>
+        </div>
+
+        <div id="connected" class="page hidden">
+            <h2>Device Connected to Wi-Fi</h2>
+            <p>You may now close this window.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
