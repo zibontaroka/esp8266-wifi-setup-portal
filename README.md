@@ -11,7 +11,6 @@ A modular, cloud-free Wi-Fi provisioning system for ESP8266-based IoT devices. T
 - **Backward Compatibility**: Supports older configurations without custom IP.
 
 ## 🚀 How It Works
-
 1. ESP8266 boots in `WIFI_AP_STA` mode.
 2. Creates a Wi-Fi network (e.g., `MyIoT_Device`) with a custom or default IP.
 3. Hosts a web server for Wi-Fi configuration.
@@ -19,7 +18,6 @@ A modular, cloud-free Wi-Fi provisioning system for ESP8266-based IoT devices. T
 5. ESP8266 switches to STA mode after successful connection.
 
 ## 🌐 Features
-
 - Access Point (AP+STA) mode
 - Responsive web interface (HTML/CSS/JS)
 - Wi-Fi network scanning
@@ -32,13 +30,16 @@ A modular, cloud-free Wi-Fi provisioning system for ESP8266-based IoT devices. T
 ## ⚙️ How to Use
 
 ### Prerequisites
-
 - Arduino IDE with ESP8266 board support
+  - Install the ESP8266 board package via Boards Manager: `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+  - Required libraries: `ESP8266WiFi`, `ESPAsyncWebServer` (install via Library Manager)
 - ESP8266 board (e.g., NodeMCU, Wemos D1 Mini)
 
 ### Setup Steps
-
-1. Clone or download this repository.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/ESP8266-AP.git
+   ```
 2. Open `ESP8266-AP/ESP8266-AP.ino` in Arduino IDE.
 3. Customize Access Point settings:
    ```cpp
@@ -46,12 +47,13 @@ A modular, cloud-free Wi-Fi provisioning system for ESP8266-based IoT devices. T
    const char* apPassword = "12345678";
    IPAddress apIP(192, 168, 10, 10); // Custom SoftAP IP
    ```
-4. Upload the sketch to your ESP8266.
-5. Connect to the `MyIoT_Device` Wi-Fi network.
-6. Open a browser and navigate to `http://192.168.10.10` (or your custom IP).
+4. Upload the web interface files:
+   - Place the `data/` folder contents into the ESP8266 filesystem using the "ESP8266 Sketch Data Upload" tool (requires the `ESP8266FS` plugin).
+5. Upload the sketch to your ESP8266.
+6. Connect to the `MyIoT_Device` Wi-Fi network.
+7. Open a browser and navigate to `http://192.168.10.10` (or your custom IP).
 
 ## 🧠 Why This Project?
-
 Ideal for professional IoT systems requiring:
 - 🔐 Data privacy and control
 - 🌐 Offline operation
@@ -64,7 +66,6 @@ Use cases:
 - Industrial IoT and factory equipment
 
 ## 📦 Project Structure
-
 ```bash
 ESP8266-AP/
 ├── ESP8266-AP.ino        # Main firmware
@@ -72,17 +73,30 @@ ESP8266-AP/
 ├── data/                 # Web portal files (HTML/CSS/JS)
 ```
 
-## 🛡️ License
+## 🛠 Troubleshooting
+- **Cannot connect to AP**: Ensure the ESP8266 is powered and the `apSSID`/`apPassword` match your settings.
+- **Web interface not loading**: Verify that the `data/` folder contents are uploaded to the ESP8266 filesystem.
+- For more help, open an issue on GitHub.
 
+## 📜 Version History
+See [CHANGELOG.md](CHANGELOG.md) for detailed version updates.
+
+## 🛡️ License
 Licensed under the MIT License. See the `LICENSE` file for details.
 
-## 👨‍💻 Developer
+## 🤝 Contributing
+Contributions are welcome! Please follow these steps:
+- Fork the repository
+- Create a feature branch (`git checkout -b feature/your-feature`)
+- Commit changes (`git commit -m 'Add your feature'`)
+- Push to the branch (`git push origin feature/your-feature`)
+- Open a pull request
+For detailed guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## 👨‍💻 Developer
 **Md Shaifulla Zibon**  
 IoT Systems Designer | SMPS Engineer | Web Dashboard Integrator  
 🎓 B.Sc. in Electrical and Electronic Engineering, European University of Bangladesh  
 
 💬 For questions, feature requests, or contributions, open an issue or pull request.
-
----
 ```
