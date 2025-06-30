@@ -86,7 +86,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version updates.
 ## 🛡️ License
 Licensed under the MIT License. See the `LICENSE` file for details.
 
-
+- 
 ## 👨‍💻 Developer
 **Md Shaifulla Zibon**  
 IoT Systems Designer | SMPS Engineer | Web Dashboard Integrator  
