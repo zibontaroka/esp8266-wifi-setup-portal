@@ -1,4 +1,4 @@
-```markdown
+
 # ESP8266 Web-Based Wi-Fi Setup Portal (v2.0.0)
 
 A modular, cloud-free Wi-Fi provisioning system for ESP8266-based IoT devices. This portal enables users to scan Wi-Fi networks, select an SSID, enter a password, and connect the ESP8266 to a local network via a responsive web interface hosted on the device.
